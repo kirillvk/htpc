@@ -1,0 +1,16 @@
+---
+version: "2"
+services:
+    jackett:
+        image: linuxserver/jackett
+        container_name: jackett
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=America/Toronto
+        volumes:
+            - /mnt/md0/docker/AppData:/config
+            - /mnt/md0/public/Downloads:/downloads
+        ports:
+            - 9117:9117
+        restart: unless-stopped

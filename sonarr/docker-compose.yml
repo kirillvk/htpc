@@ -11,8 +11,8 @@ services:
             - UMASK_SET=022 #optional
         volumes:
             - /mnt/md0/public/Videos/TV:/tv
-            - /mnt/md0/docker/AppData:/config
             - /mnt/md0/public/Downloads:/downloads
+            - /mnt/md0/docker/AppData/sonarr:/config
         ports:
             - 8989:8989
         restart: unless-stopped

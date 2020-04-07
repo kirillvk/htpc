@@ -5,14 +5,14 @@ services:
         image: linuxserver/radarr
         container_name: radarr
         environment:
-        - PUID=1000
-        - PGID=1000
-        - TZ=America/Toronto
-        - UMASK_SET=022 #optional
+            - PUID=1000
+            - PGID=1000
+            - TZ=America/Toronto
+            - UMASK_SET=022 #optional
         volumes:
-        - /mnt/md0/public/Videos/Movies:/movies
-        - /mnt/md0/docker/AppData:/config
-        - /mnt/md0/public/Downloads:/downloads
+            - /mnt/md0/public/Videos/Movies:/movies
+            - /mnt/md0/public/Downloads:/downloads
+            - /mnt/md0/docker/AppData/radarr:/config
         ports:
-        - 7878:7878
+            - 7878:7878
         restart: unless-stopped

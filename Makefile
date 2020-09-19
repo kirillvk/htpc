@@ -35,10 +35,7 @@ install-docker: add-docker-repo
 
 install-docker-compose:
 	# download the specified docker compose binaries to the /usr/local/bin directory and set execute permissions
-	platformS := uname -s
-	platformM := uname -m
-	
-	@curl -L "https://github.com/docker/compose/releases/download/$(DOCKER_COMPOSE_VER)/docker-compose-$(platformS)-$(platformM)" -o /usr/local/bin/docker-compose
+	@curl -L "https://github.com/docker/compose/releases/download/$(DOCKER_COMPOSE_VER)/docker-compose-$(shell uname -s)-$(shell uname -m)" -o /usr/local/bin/docker-compose
 	@chmod +x /usr/local/bin/docker-compose
 	@docker-compose --version
 

@@ -7,7 +7,6 @@ install-docker: prereq
 	@curl -fsSL https://get.docker.com -o get-docker.sh
 	@sh get-docker.sh
 
-	@groupadd docker
 	@usermod -aG docker $(USER)
 	@newgrp docker
 
@@ -22,11 +21,11 @@ install: install-docker install-docker-compose
 	@echo Docker and Docker Compose installed
 
 uninstall-docker:
-	@apt-get purge docker-ce docker-ce-cli containerd.io
+	@apt-get purge -y docker-ce docker-ce-cli containerd.io
 	@rm -rf /var/lib/docker
 
 uninstall-docker-compose:
-	@rm /usr/local/bin/docker-compose
+	@rm -f /usr/local/bin/docker-compose
 
 uninstall: uninstall-docker uninstall-docker-compose
 	@echo Uninstalled.

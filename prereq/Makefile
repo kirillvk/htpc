@@ -1,3 +1,4 @@
+DOCKER_COMPOSE_VER = 1.27.3
 
 prereq:
 	# Install the docker prequisites
